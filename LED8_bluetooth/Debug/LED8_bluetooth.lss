@@ -1,0 +1,605 @@
+
+LED8_bluetooth.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         0000008a  00800100  00000340  000003d4  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         00000340  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000002  0080018a  0080018a  0000045e  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  0000045e  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000490  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 000000e8  00000000  00000000  000004d0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00000d6c  00000000  00000000  000005b8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 0000076c  00000000  00000000  00001324  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   000006e7  00000000  00000000  00001a90  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  000001b4  00000000  00000000  00002178  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00000429  00000000  00000000  0000232c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    000000bd  00000000  00000000  00002755  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 000000c8  00000000  00000000  00002812  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+   8:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+   c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  10:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  14:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  18:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  1c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  20:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  24:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  28:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  2c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  30:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  34:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  38:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  3c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  40:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  44:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  48:	0c 94 53 00 	jmp	0xa6	; 0xa6 <__vector_18>
+  4c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  50:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  54:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  58:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  5c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  60:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  64:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_copy_data>:
+  74:	11 e0       	ldi	r17, 0x01	; 1
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	e0 e4       	ldi	r30, 0x40	; 64
+  7c:	f3 e0       	ldi	r31, 0x03	; 3
+  7e:	02 c0       	rjmp	.+4      	; 0x84 <__do_copy_data+0x10>
+  80:	05 90       	lpm	r0, Z+
+  82:	0d 92       	st	X+, r0
+  84:	aa 38       	cpi	r26, 0x8A	; 138
+  86:	b1 07       	cpc	r27, r17
+  88:	d9 f7       	brne	.-10     	; 0x80 <__do_copy_data+0xc>
+
+0000008a <__do_clear_bss>:
+  8a:	21 e0       	ldi	r18, 0x01	; 1
+  8c:	aa e8       	ldi	r26, 0x8A	; 138
+  8e:	b1 e0       	ldi	r27, 0x01	; 1
+  90:	01 c0       	rjmp	.+2      	; 0x94 <.do_clear_bss_start>
+
+00000092 <.do_clear_bss_loop>:
+  92:	1d 92       	st	X+, r1
+
+00000094 <.do_clear_bss_start>:
+  94:	ac 38       	cpi	r26, 0x8C	; 140
+  96:	b2 07       	cpc	r27, r18
+  98:	e1 f7       	brne	.-8      	; 0x92 <.do_clear_bss_loop>
+  9a:	0e 94 36 01 	call	0x26c	; 0x26c <main>
+  9e:	0c 94 9e 01 	jmp	0x33c	; 0x33c <_exit>
+
+000000a2 <__bad_interrupt>:
+  a2:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000a6 <__vector_18>:
+
+
+
+
+
+ISR(USART_RX_vect){
+  a6:	1f 92       	push	r1
+  a8:	0f 92       	push	r0
+  aa:	0f b6       	in	r0, 0x3f	; 63
+  ac:	0f 92       	push	r0
+  ae:	11 24       	eor	r1, r1
+  b0:	8f 93       	push	r24
+	buffer = UDR0;
+  b2:	80 91 c6 00 	lds	r24, 0x00C6	; 0x8000c6 <__DATA_REGION_ORIGIN__+0x66>
+  b6:	80 93 8b 01 	sts	0x018B, r24	; 0x80018b <buffer>
+	StrRX_flag = 1;
+  ba:	81 e0       	ldi	r24, 0x01	; 1
+  bc:	80 93 8a 01 	sts	0x018A, r24	; 0x80018a <__data_end>
+}
+  c0:	8f 91       	pop	r24
+  c2:	0f 90       	pop	r0
+  c4:	0f be       	out	0x3f, r0	; 63
+  c6:	0f 90       	pop	r0
+  c8:	1f 90       	pop	r1
+  ca:	18 95       	reti
+
+000000cc <led_0>:
+}//end main
+
+
+
+led_0(){
+	if(buffer == 48){
+  cc:	80 91 8b 01 	lds	r24, 0x018B	; 0x80018b <buffer>
+  d0:	80 33       	cpi	r24, 0x30	; 48
+  d2:	41 f4       	brne	.+16     	; 0xe4 <led_0+0x18>
+		PORTB |= (1<<PORTB0); //led0 on
+  d4:	28 9a       	sbi	0x05, 0	; 5
+		USART_putstring("led0 on");
+  d6:	80 e0       	ldi	r24, 0x00	; 0
+  d8:	91 e0       	ldi	r25, 0x01	; 1
+  da:	0e 94 86 01 	call	0x30c	; 0x30c <USART_putstring>
+		USART_send_char(10);
+  de:	8a e0       	ldi	r24, 0x0A	; 10
+  e0:	0e 94 96 01 	call	0x32c	; 0x32c <USART_send_char>
+	}
+}
+  e4:	08 95       	ret
+
+000000e6 <led_A>:
+
+led_A(){
+	if(buffer == 65){
+  e6:	80 91 8b 01 	lds	r24, 0x018B	; 0x80018b <buffer>
+  ea:	81 34       	cpi	r24, 0x41	; 65
+  ec:	41 f4       	brne	.+16     	; 0xfe <led_A+0x18>
+		PORTB &=~ (1<<PORTB0); //led0 off
+  ee:	28 98       	cbi	0x05, 0	; 5
+		USART_putstring("led0 off");
+  f0:	88 e0       	ldi	r24, 0x08	; 8
+  f2:	91 e0       	ldi	r25, 0x01	; 1
+  f4:	0e 94 86 01 	call	0x30c	; 0x30c <USART_putstring>
+		USART_send_char(10);
+  f8:	8a e0       	ldi	r24, 0x0A	; 10
+  fa:	0e 94 96 01 	call	0x32c	; 0x32c <USART_send_char>
+	}
+}
+  fe:	08 95       	ret
+
+00000100 <led_1>:
+led_1(){
+	if(buffer == 49){
+ 100:	80 91 8b 01 	lds	r24, 0x018B	; 0x80018b <buffer>
+ 104:	81 33       	cpi	r24, 0x31	; 49
+ 106:	41 f4       	brne	.+16     	; 0x118 <led_1+0x18>
+		PORTB |= (1<<PORTB1); //led1 on
+ 108:	29 9a       	sbi	0x05, 1	; 5
+		USART_putstring("led1 on");
+ 10a:	81 e1       	ldi	r24, 0x11	; 17
+ 10c:	91 e0       	ldi	r25, 0x01	; 1
+ 10e:	0e 94 86 01 	call	0x30c	; 0x30c <USART_putstring>
+		USART_send_char(10);
+ 112:	8a e0       	ldi	r24, 0x0A	; 10
+ 114:	0e 94 96 01 	call	0x32c	; 0x32c <USART_send_char>
+	}
+}
+ 118:	08 95       	ret
+
+0000011a <led_B>:
+
+led_B(){
+	if(buffer == 66){
+ 11a:	80 91 8b 01 	lds	r24, 0x018B	; 0x80018b <buffer>
+ 11e:	82 34       	cpi	r24, 0x42	; 66
+ 120:	41 f4       	brne	.+16     	; 0x132 <led_B+0x18>
+		PORTB &=~ (1<<PORTB1); //led1 off
+ 122:	29 98       	cbi	0x05, 1	; 5
+		USART_putstring("led1 off");
+ 124:	89 e1       	ldi	r24, 0x19	; 25
+ 126:	91 e0       	ldi	r25, 0x01	; 1
+ 128:	0e 94 86 01 	call	0x30c	; 0x30c <USART_putstring>
+		USART_send_char(10);
+ 12c:	8a e0       	ldi	r24, 0x0A	; 10
+ 12e:	0e 94 96 01 	call	0x32c	; 0x32c <USART_send_char>
+	}	
+}
+ 132:	08 95       	ret
+
+00000134 <led_2>:
+led_2(){
+	if(buffer == 50){
+ 134:	80 91 8b 01 	lds	r24, 0x018B	; 0x80018b <buffer>
+ 138:	82 33       	cpi	r24, 0x32	; 50
+ 13a:	41 f4       	brne	.+16     	; 0x14c <led_2+0x18>
+		PORTB |= (1<<PORTB2); //led2 on
+ 13c:	2a 9a       	sbi	0x05, 2	; 5
+		USART_putstring("led2 on");
+ 13e:	82 e2       	ldi	r24, 0x22	; 34
+ 140:	91 e0       	ldi	r25, 0x01	; 1
+ 142:	0e 94 86 01 	call	0x30c	; 0x30c <USART_putstring>
+		USART_send_char(10);
+ 146:	8a e0       	ldi	r24, 0x0A	; 10
+ 148:	0e 94 96 01 	call	0x32c	; 0x32c <USART_send_char>
+	}
+}
+ 14c:	08 95       	ret
+
+0000014e <led_C>:
+
+led_C(){
+	if(buffer == 67){
+ 14e:	80 91 8b 01 	lds	r24, 0x018B	; 0x80018b <buffer>
+ 152:	83 34       	cpi	r24, 0x43	; 67
+ 154:	41 f4       	brne	.+16     	; 0x166 <led_C+0x18>
+		PORTB &=~ (1<<PORTB2); //led2 off
+ 156:	2a 98       	cbi	0x05, 2	; 5
+		USART_putstring("led2 off");
+ 158:	8a e2       	ldi	r24, 0x2A	; 42
+ 15a:	91 e0       	ldi	r25, 0x01	; 1
+ 15c:	0e 94 86 01 	call	0x30c	; 0x30c <USART_putstring>
+		USART_send_char(10);
+ 160:	8a e0       	ldi	r24, 0x0A	; 10
+ 162:	0e 94 96 01 	call	0x32c	; 0x32c <USART_send_char>
+	}
+}
+ 166:	08 95       	ret
+
+00000168 <led_3>:
+led_3(){
+	if(buffer == 51){
+ 168:	80 91 8b 01 	lds	r24, 0x018B	; 0x80018b <buffer>
+ 16c:	83 33       	cpi	r24, 0x33	; 51
+ 16e:	41 f4       	brne	.+16     	; 0x180 <led_3+0x18>
+		PORTB |= (1<<PORTB3); //led3 on
+ 170:	2b 9a       	sbi	0x05, 3	; 5
+		USART_putstring("led3 on");
+ 172:	83 e3       	ldi	r24, 0x33	; 51
+ 174:	91 e0       	ldi	r25, 0x01	; 1
+ 176:	0e 94 86 01 	call	0x30c	; 0x30c <USART_putstring>
+		USART_send_char(10);
+ 17a:	8a e0       	ldi	r24, 0x0A	; 10
+ 17c:	0e 94 96 01 	call	0x32c	; 0x32c <USART_send_char>
+	}
+}
+ 180:	08 95       	ret
+
+00000182 <led_D>:
+
+led_D(){
+	if(buffer == 68){
+ 182:	80 91 8b 01 	lds	r24, 0x018B	; 0x80018b <buffer>
+ 186:	84 34       	cpi	r24, 0x44	; 68
+ 188:	41 f4       	brne	.+16     	; 0x19a <led_D+0x18>
+		PORTB &=~ (1<<PORTB3); //led3 off
+ 18a:	2b 98       	cbi	0x05, 3	; 5
+		USART_putstring("led3 off");
+ 18c:	8b e3       	ldi	r24, 0x3B	; 59
+ 18e:	91 e0       	ldi	r25, 0x01	; 1
+ 190:	0e 94 86 01 	call	0x30c	; 0x30c <USART_putstring>
+		USART_send_char(10);
+ 194:	8a e0       	ldi	r24, 0x0A	; 10
+ 196:	0e 94 96 01 	call	0x32c	; 0x32c <USART_send_char>
+	}
+}
+ 19a:	08 95       	ret
+
+0000019c <led_4>:
+
+led_4(){
+	if(buffer == 52){
+ 19c:	80 91 8b 01 	lds	r24, 0x018B	; 0x80018b <buffer>
+ 1a0:	84 33       	cpi	r24, 0x34	; 52
+ 1a2:	41 f4       	brne	.+16     	; 0x1b4 <led_4+0x18>
+		PORTB |= (1<<PORTB4); //led4 on
+ 1a4:	2c 9a       	sbi	0x05, 4	; 5
+		USART_putstring("led4 on");
+ 1a6:	84 e4       	ldi	r24, 0x44	; 68
+ 1a8:	91 e0       	ldi	r25, 0x01	; 1
+ 1aa:	0e 94 86 01 	call	0x30c	; 0x30c <USART_putstring>
+		USART_send_char(10);
+ 1ae:	8a e0       	ldi	r24, 0x0A	; 10
+ 1b0:	0e 94 96 01 	call	0x32c	; 0x32c <USART_send_char>
+	}
+}
+ 1b4:	08 95       	ret
+
+000001b6 <led_E>:
+
+led_E(){
+	if(buffer == 69){
+ 1b6:	80 91 8b 01 	lds	r24, 0x018B	; 0x80018b <buffer>
+ 1ba:	85 34       	cpi	r24, 0x45	; 69
+ 1bc:	41 f4       	brne	.+16     	; 0x1ce <led_E+0x18>
+		PORTB &=~ (1<<PORTB4); //led4 off
+ 1be:	2c 98       	cbi	0x05, 4	; 5
+		USART_putstring("led4 off");
+ 1c0:	8c e4       	ldi	r24, 0x4C	; 76
+ 1c2:	91 e0       	ldi	r25, 0x01	; 1
+ 1c4:	0e 94 86 01 	call	0x30c	; 0x30c <USART_putstring>
+		USART_send_char(10);
+ 1c8:	8a e0       	ldi	r24, 0x0A	; 10
+ 1ca:	0e 94 96 01 	call	0x32c	; 0x32c <USART_send_char>
+	}
+}
+ 1ce:	08 95       	ret
+
+000001d0 <led_5>:
+led_5(){
+	if(buffer == 53){
+ 1d0:	80 91 8b 01 	lds	r24, 0x018B	; 0x80018b <buffer>
+ 1d4:	85 33       	cpi	r24, 0x35	; 53
+ 1d6:	41 f4       	brne	.+16     	; 0x1e8 <led_5+0x18>
+		PORTB |= (1<<PORTB5); //led5 on
+ 1d8:	2d 9a       	sbi	0x05, 5	; 5
+		USART_putstring("led5 on");
+ 1da:	85 e5       	ldi	r24, 0x55	; 85
+ 1dc:	91 e0       	ldi	r25, 0x01	; 1
+ 1de:	0e 94 86 01 	call	0x30c	; 0x30c <USART_putstring>
+		USART_send_char(10);
+ 1e2:	8a e0       	ldi	r24, 0x0A	; 10
+ 1e4:	0e 94 96 01 	call	0x32c	; 0x32c <USART_send_char>
+	}
+}
+ 1e8:	08 95       	ret
+
+000001ea <led_F>:
+
+led_F(){
+	if(buffer == 70){
+ 1ea:	80 91 8b 01 	lds	r24, 0x018B	; 0x80018b <buffer>
+ 1ee:	86 34       	cpi	r24, 0x46	; 70
+ 1f0:	41 f4       	brne	.+16     	; 0x202 <led_F+0x18>
+		PORTB &=~ (1<<PORTB5); //led5 off
+ 1f2:	2d 98       	cbi	0x05, 5	; 5
+		USART_putstring("led5 off");
+ 1f4:	8d e5       	ldi	r24, 0x5D	; 93
+ 1f6:	91 e0       	ldi	r25, 0x01	; 1
+ 1f8:	0e 94 86 01 	call	0x30c	; 0x30c <USART_putstring>
+		USART_send_char(10);
+ 1fc:	8a e0       	ldi	r24, 0x0A	; 10
+ 1fe:	0e 94 96 01 	call	0x32c	; 0x32c <USART_send_char>
+	}
+}
+ 202:	08 95       	ret
+
+00000204 <led_6>:
+led_6(){
+	if(buffer == 54){
+ 204:	80 91 8b 01 	lds	r24, 0x018B	; 0x80018b <buffer>
+ 208:	86 33       	cpi	r24, 0x36	; 54
+ 20a:	41 f4       	brne	.+16     	; 0x21c <led_6+0x18>
+		PORTD |= (1<<PORTD6); //led6 on
+ 20c:	5e 9a       	sbi	0x0b, 6	; 11
+		USART_putstring("led6 on");
+ 20e:	86 e6       	ldi	r24, 0x66	; 102
+ 210:	91 e0       	ldi	r25, 0x01	; 1
+ 212:	0e 94 86 01 	call	0x30c	; 0x30c <USART_putstring>
+		USART_send_char(10);
+ 216:	8a e0       	ldi	r24, 0x0A	; 10
+ 218:	0e 94 96 01 	call	0x32c	; 0x32c <USART_send_char>
+	}
+}
+ 21c:	08 95       	ret
+
+0000021e <led_G>:
+led_G(){
+	if(buffer == 71){
+ 21e:	80 91 8b 01 	lds	r24, 0x018B	; 0x80018b <buffer>
+ 222:	87 34       	cpi	r24, 0x47	; 71
+ 224:	41 f4       	brne	.+16     	; 0x236 <led_G+0x18>
+		PORTD &=~ (1<<PORTD6); //led6 off
+ 226:	5e 98       	cbi	0x0b, 6	; 11
+		USART_putstring("led6 off");
+ 228:	8e e6       	ldi	r24, 0x6E	; 110
+ 22a:	91 e0       	ldi	r25, 0x01	; 1
+ 22c:	0e 94 86 01 	call	0x30c	; 0x30c <USART_putstring>
+		USART_send_char(10);
+ 230:	8a e0       	ldi	r24, 0x0A	; 10
+ 232:	0e 94 96 01 	call	0x32c	; 0x32c <USART_send_char>
+	}
+}
+ 236:	08 95       	ret
+
+00000238 <led_7>:
+
+led_7(){
+	if(buffer == 55){
+ 238:	80 91 8b 01 	lds	r24, 0x018B	; 0x80018b <buffer>
+ 23c:	87 33       	cpi	r24, 0x37	; 55
+ 23e:	41 f4       	brne	.+16     	; 0x250 <led_7+0x18>
+		PORTD |= (1<<PORTD7); //led7 on
+ 240:	5f 9a       	sbi	0x0b, 7	; 11
+		USART_putstring("led7 on");
+ 242:	87 e7       	ldi	r24, 0x77	; 119
+ 244:	91 e0       	ldi	r25, 0x01	; 1
+ 246:	0e 94 86 01 	call	0x30c	; 0x30c <USART_putstring>
+		USART_send_char(10);
+ 24a:	8a e0       	ldi	r24, 0x0A	; 10
+ 24c:	0e 94 96 01 	call	0x32c	; 0x32c <USART_send_char>
+	}
+}
+ 250:	08 95       	ret
+
+00000252 <led_H>:
+
+led_H(){
+	if(buffer == 72){
+ 252:	80 91 8b 01 	lds	r24, 0x018B	; 0x80018b <buffer>
+ 256:	88 34       	cpi	r24, 0x48	; 72
+ 258:	41 f4       	brne	.+16     	; 0x26a <led_H+0x18>
+		PORTD &=~ (1<<PORTD7); //led7 off
+ 25a:	5f 98       	cbi	0x0b, 7	; 11
+		USART_putstring("led7 off");
+ 25c:	8f e7       	ldi	r24, 0x7F	; 127
+ 25e:	91 e0       	ldi	r25, 0x01	; 1
+ 260:	0e 94 86 01 	call	0x30c	; 0x30c <USART_putstring>
+		USART_send_char(10);
+ 264:	8a e0       	ldi	r24, 0x0A	; 10
+ 266:	0e 94 96 01 	call	0x32c	; 0x32c <USART_send_char>
+	}
+ 26a:	08 95       	ret
+
+0000026c <main>:
+	StrRX_flag = 1;
+}
+
+int main(void)
+{
+	DDRB = 0b11111111; // set port b0,1,2,3,4,5 as output led0-5
+ 26c:	8f ef       	ldi	r24, 0xFF	; 255
+ 26e:	84 b9       	out	0x04, r24	; 4
+	DDRD = 0b11000000; // set port d01,1 as input for tx and rx; set port d06,7 as output for led6-7
+ 270:	80 ec       	ldi	r24, 0xC0	; 192
+ 272:	8a b9       	out	0x0a, r24	; 10
+	USART0Init();
+ 274:	0e 94 6b 01 	call	0x2d6	; 0x2d6 <USART0Init>
+	sei();
+ 278:	78 94       	sei
+	USART_putstring("A");
+ 27a:	88 e8       	ldi	r24, 0x88	; 136
+ 27c:	91 e0       	ldi	r25, 0x01	; 1
+ 27e:	0e 94 86 01 	call	0x30c	; 0x30c <USART_putstring>
+	USART_send_char(10);
+ 282:	8a e0       	ldi	r24, 0x0A	; 10
+ 284:	0e 94 96 01 	call	0x32c	; 0x32c <USART_send_char>
+
+	
+   
+    while (1) 
+    {
+		if (StrRX_flag == 1){
+ 288:	80 91 8a 01 	lds	r24, 0x018A	; 0x80018a <__data_end>
+ 28c:	81 30       	cpi	r24, 0x01	; 1
+ 28e:	e1 f7       	brne	.-8      	; 0x288 <main+0x1c>
+			// led on
+			led_0();
+ 290:	0e 94 66 00 	call	0xcc	; 0xcc <led_0>
+			led_1();
+ 294:	0e 94 80 00 	call	0x100	; 0x100 <led_1>
+			led_2();
+ 298:	0e 94 9a 00 	call	0x134	; 0x134 <led_2>
+			led_3();
+ 29c:	0e 94 b4 00 	call	0x168	; 0x168 <led_3>
+			led_4();
+ 2a0:	0e 94 ce 00 	call	0x19c	; 0x19c <led_4>
+			led_5();
+ 2a4:	0e 94 e8 00 	call	0x1d0	; 0x1d0 <led_5>
+			led_6();
+ 2a8:	0e 94 02 01 	call	0x204	; 0x204 <led_6>
+			led_7();
+ 2ac:	0e 94 1c 01 	call	0x238	; 0x238 <led_7>
+			// led off
+			led_A();
+ 2b0:	0e 94 73 00 	call	0xe6	; 0xe6 <led_A>
+			led_B();
+ 2b4:	0e 94 8d 00 	call	0x11a	; 0x11a <led_B>
+			led_C();
+ 2b8:	0e 94 a7 00 	call	0x14e	; 0x14e <led_C>
+			led_D();
+ 2bc:	0e 94 c1 00 	call	0x182	; 0x182 <led_D>
+			led_E();
+ 2c0:	0e 94 db 00 	call	0x1b6	; 0x1b6 <led_E>
+			led_F();
+ 2c4:	0e 94 f5 00 	call	0x1ea	; 0x1ea <led_F>
+			led_G();
+ 2c8:	0e 94 0f 01 	call	0x21e	; 0x21e <led_G>
+			led_H();
+ 2cc:	0e 94 29 01 	call	0x252	; 0x252 <led_H>
+			
+		StrRX_flag =0;
+ 2d0:	10 92 8a 01 	sts	0x018A, r1	; 0x80018a <__data_end>
+ 2d4:	d9 cf       	rjmp	.-78     	; 0x288 <main+0x1c>
+
+000002d6 <USART0Init>:
+{
+	// Wait for byte to be received
+	while(!(UCSR0A&(1<<RXC0))){};
+	// Return received data
+	return UDR0;
+}
+ 2d6:	10 92 c5 00 	sts	0x00C5, r1	; 0x8000c5 <__DATA_REGION_ORIGIN__+0x65>
+ 2da:	87 e6       	ldi	r24, 0x67	; 103
+ 2dc:	80 93 c4 00 	sts	0x00C4, r24	; 0x8000c4 <__DATA_REGION_ORIGIN__+0x64>
+ 2e0:	e2 ec       	ldi	r30, 0xC2	; 194
+ 2e2:	f0 e0       	ldi	r31, 0x00	; 0
+ 2e4:	80 81       	ld	r24, Z
+ 2e6:	86 60       	ori	r24, 0x06	; 6
+ 2e8:	80 83       	st	Z, r24
+ 2ea:	e1 ec       	ldi	r30, 0xC1	; 193
+ 2ec:	f0 e0       	ldi	r31, 0x00	; 0
+ 2ee:	80 81       	ld	r24, Z
+ 2f0:	88 61       	ori	r24, 0x18	; 24
+ 2f2:	80 83       	st	Z, r24
+ 2f4:	80 81       	ld	r24, Z
+ 2f6:	80 68       	ori	r24, 0x80	; 128
+ 2f8:	80 83       	st	Z, r24
+ 2fa:	08 95       	ret
+
+000002fc <USART0SendByte>:
+ 2fc:	e0 ec       	ldi	r30, 0xC0	; 192
+ 2fe:	f0 e0       	ldi	r31, 0x00	; 0
+ 300:	90 81       	ld	r25, Z
+ 302:	95 ff       	sbrs	r25, 5
+ 304:	fd cf       	rjmp	.-6      	; 0x300 <USART0SendByte+0x4>
+ 306:	80 93 c6 00 	sts	0x00C6, r24	; 0x8000c6 <__DATA_REGION_ORIGIN__+0x66>
+ 30a:	08 95       	ret
+
+0000030c <USART_putstring>:
+
+void USART_putstring(char* StringPtr){
+ 30c:	cf 93       	push	r28
+ 30e:	df 93       	push	r29
+ 310:	ec 01       	movw	r28, r24
+	
+	while(*StringPtr != 0x00){
+ 312:	88 81       	ld	r24, Y
+ 314:	88 23       	and	r24, r24
+ 316:	39 f0       	breq	.+14     	; 0x326 <USART_putstring+0x1a>
+ 318:	21 96       	adiw	r28, 0x01	; 1
+		USART0SendByte(*StringPtr);
+ 31a:	90 e0       	ldi	r25, 0x00	; 0
+ 31c:	0e 94 7e 01 	call	0x2fc	; 0x2fc <USART0SendByte>
+	return UDR0;
+}
+
+void USART_putstring(char* StringPtr){
+	
+	while(*StringPtr != 0x00){
+ 320:	89 91       	ld	r24, Y+
+ 322:	81 11       	cpse	r24, r1
+ 324:	fa cf       	rjmp	.-12     	; 0x31a <USART_putstring+0xe>
+	StringPtr++;
+	
+	}
+	
+	
+}
+ 326:	df 91       	pop	r29
+ 328:	cf 91       	pop	r28
+ 32a:	08 95       	ret
+
+0000032c <USART_send_char>:
+void USART_send_char( char  data)
+{
+	//while the transmit buffer is not empty loop
+	while(!(UCSR0A & (1<<UDRE0)));
+ 32c:	e0 ec       	ldi	r30, 0xC0	; 192
+ 32e:	f0 e0       	ldi	r31, 0x00	; 0
+ 330:	90 81       	ld	r25, Z
+ 332:	95 ff       	sbrs	r25, 5
+ 334:	fd cf       	rjmp	.-6      	; 0x330 <USART_send_char+0x4>
+	
+	//when the buffer is empty write data to the transmitted
+	UDR0 = data;
+ 336:	80 93 c6 00 	sts	0x00C6, r24	; 0x8000c6 <__DATA_REGION_ORIGIN__+0x66>
+ 33a:	08 95       	ret
+
+0000033c <_exit>:
+ 33c:	f8 94       	cli
+
+0000033e <__stop_program>:
+ 33e:	ff cf       	rjmp	.-2      	; 0x33e <__stop_program>
